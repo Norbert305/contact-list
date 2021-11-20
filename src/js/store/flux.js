@@ -5,7 +5,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 		},
 		actions: {
 			addContacts: contacts => {
-				fetch("https://assets.breatheco.de/apis/fake/contact/", {
+				fetch("https://3000-coffee-mink-k8ciz2iv.ws-us18.gitpod.io/contact", {
 					method: "POST",
 					body: JSON.stringify(contacts),
 					headers: { "Content-Type": "application/json" }
@@ -14,13 +14,13 @@ const getState = ({ getStore, setStore, getActions }) => {
 					.catch(err => console.error(err));
 			},
 			getContacts: () => {
-				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/Norbert305")
+				fetch("https://3000-coffee-mink-k8ciz2iv.ws-us18.gitpod.io/contact")
 					.then(res => res.json())
 					.then(data => setStore({ contacts: data }))
 					.catch(err => console.error(err));
 			},
 			updateContacts: contacts => {
-				fetch(`https://assets.breatheco.de/apis/fake/contact/${contacts.id}`, {
+				fetch(`https://3000-coffee-mink-k8ciz2iv.ws-us18.gitpod.io/contact/${contacts.id}`, {
 					method: "PUT",
 					body: JSON.stringify(contacts),
 					headers: { "Content-Type": "application/json" }
@@ -30,7 +30,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 			},
 
 			deleteContacts: contactsId => {
-				fetch(`https://assets.breatheco.de/apis/fake/contact/${contactsId}`, {
+				fetch(`https://3000-coffee-mink-k8ciz2iv.ws-us18.gitpod.io/contact/${contactsId}`, {
 					method: "DELETE"
 				}).then(() => getActions().getContacts());
 			},

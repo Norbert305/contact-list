@@ -7,7 +7,7 @@ export const EditContact = props => {
 	const { store, actions } = useContext(Context);
 	let { id } = useParams();
 	console.log(props);
-	const editContact = store.contacts && store.contacts.find(contact => contact.id === props.match.params.id);
+	var editContact = store.contacts && store.contacts.find(contact => contact.id == props.match.params.id);
 	console.log(editContact);
 
 	const [edit, setEdit] = React.useState({
